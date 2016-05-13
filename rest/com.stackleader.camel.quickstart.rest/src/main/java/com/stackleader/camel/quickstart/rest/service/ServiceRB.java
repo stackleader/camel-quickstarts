@@ -13,9 +13,7 @@ import com.stackleader.camel.quickstart.rest.model.Order;
 import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.jackson.JacksonDataFormat;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
-import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
@@ -47,17 +45,13 @@ public class ServiceRB extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        JacksonDataFormat orderFormat = new JacksonDataFormat();
-        orderFormat.setUnmarshalType(Order.class);
 
-        restConfiguration().component("jetty").host("0.0.0.0").port("8181");
-        rest("/orders").post().to(ORDERS_ENDPOINT);
+        restConfiguration().component("jetty").host("0.0.0.0").port("8181").bindingMode(RestBindingMode.json);
+        rest("/orders").post().type(Order.class).to(ORDERS_ENDPOINT);
 
         from(ORDERS_ENDPOINT)
-                .log(LoggingLevel.INFO, "Processing orders")
-                .unmarshal(orderFormat)
-                .to("bean:" + OrderProcessor.class.getCanonicalName() + "?method=processOrder")
-                .marshal().json(JsonLibrary.Jackson);
+                .log(LoggingLevel.INFO, "Processing order")
+                .to("bean:" + OrderProcessor.class.getCanonicalName() + "?method=processOrder");
     }
 
     @Reference(target = "(component=jetty)")
