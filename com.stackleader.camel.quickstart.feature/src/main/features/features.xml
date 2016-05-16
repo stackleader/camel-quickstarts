@@ -3,4 +3,8 @@
     <feature name="camel-quickstart-rest" version="${project.version}">	
         <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.rest/${project.version}</bundle>
     </feature>
+    <feature name="camel-quickstart-netty" version="${project.version}">
+        <feature>camel-netty4</feature>
+        <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.netty/${project.version}</bundle>
+    </feature>
 </features>
