@@ -5,18 +5,18 @@
  */
 package com.stackleader.camel.quickstart.rest.service;
 
-import aQute.bnd.annotation.component.Component;
 import com.stackleader.camel.quickstart.rest.model.LineItem;
 import com.stackleader.camel.quickstart.rest.model.Order;
 import com.stackleader.camel.quickstart.rest.model.Receipt;
 import java.math.BigDecimal;
 import java.util.List;
+import org.osgi.service.component.annotations.Component;
 
 /**
  *
  * @author jeckstei
  */
-@Component(provide = OrderProcessor.class)
+@Component(service = OrderProcessor.class)
 public class OrderProcessor {
     public Receipt processOrder(Order order) {
         Receipt receipt = new Receipt();

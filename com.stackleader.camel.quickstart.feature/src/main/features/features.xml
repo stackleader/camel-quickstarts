@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
     <feature name="camel-quickstart-rest" version="${project.version}">	
+        <feature>camel-jetty</feature>
+        <feature>camel-jackson</feature>
+        <feature>camel-scr</feature>
         <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.rest/${project.version}</bundle>
     </feature>
     <feature name="camel-quickstart-netty" version="${project.version}">

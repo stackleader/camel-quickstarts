@@ -5,10 +5,7 @@
  */
 package com.stackleader.camel.quickstart.rest.service;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Deactivate;
-import aQute.bnd.annotation.component.Reference;
+
 import com.stackleader.camel.quickstart.rest.model.Order;
 import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
@@ -16,6 +13,10 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +47,7 @@ public class ServiceRB extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        restConfiguration().component("jetty").host("0.0.0.0").port("8181").bindingMode(RestBindingMode.json);
+        restConfiguration().component("jetty").host("0.0.0.0").port("8182").bindingMode(RestBindingMode.json);
         rest("/orders").post().type(Order.class).to(ORDERS_ENDPOINT);
 
         from(ORDERS_ENDPOINT)

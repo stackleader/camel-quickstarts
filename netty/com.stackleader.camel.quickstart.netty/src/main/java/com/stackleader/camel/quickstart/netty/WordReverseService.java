@@ -5,14 +5,14 @@
  */
 package com.stackleader.camel.quickstart.netty;
 
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
+import org.osgi.service.component.annotations.Component;
+
 
 /**
  *
  * @author jeckstei
  */
-@Component(provide = WordReverseService.class)
+@Component(service = WordReverseService.class)
 public class WordReverseService {
 
     /**
