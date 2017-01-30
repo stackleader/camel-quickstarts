@@ -4,6 +4,8 @@
         <feature>camel-jetty</feature>
         <feature>camel-jackson</feature>
         <feature>camel-scr</feature>
+        <feature>war</feature>
+        <feature>camel-servlet</feature>
         <bundle>mvn:com.google.guava/guava/19.0</bundle>
         <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.rest/${project.version}</bundle>
     </feature>

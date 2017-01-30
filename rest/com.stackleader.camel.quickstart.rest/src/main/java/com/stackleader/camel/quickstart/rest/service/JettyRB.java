@@ -20,9 +20,9 @@ import org.slf4j.LoggerFactory;
  * @author jeckstei
  */
 @Component(service = org.apache.camel.RoutesBuilder.class)
-public class ServiceRB extends RouteBuilder {
+public class JettyRB extends RouteBuilder {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ServiceRB.class);
+    private static final Logger LOG = LoggerFactory.getLogger(JettyRB.class);
     private static final String ORDERS_ENDPOINT = "direct:orders";
     
     private OrderProcessor orderProcessor;
