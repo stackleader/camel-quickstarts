@@ -7,15 +7,10 @@ package com.stackleader.camel.quickstart.rest.service;
 
 
 import com.stackleader.camel.quickstart.rest.model.Order;
-import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.model.rest.RestBindingMode;
-import org.osgi.framework.BundleContext;
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,25 +19,26 @@ import org.slf4j.LoggerFactory;
  *
  * @author jeckstei
  */
-@Component
+@Component(service = ServiceRB.class)
 public class ServiceRB extends RouteBuilder {
 
     private static final Logger LOG = LoggerFactory.getLogger(ServiceRB.class);
     private static final String ORDERS_ENDPOINT = "direct:orders";
+    
 
-    private CamelContext context;
+//    private CamelContext context;
 
-    @Activate
-    public void activate(BundleContext bundleContext) throws Exception {
-        context = new OsgiDefaultCamelContext(bundleContext);
-        context.addRoutes(this);
-        context.start();
-    }
+//    @Activate
+//    public void activate(BundleContext bundleContext) throws Exception {
+//        context = new OsgiDefaultCamelContext(bundleContext);
+//        context.addRoutes(this);
+//        context.start();
+//    }
 
-    @Deactivate
-    public void deactivate() throws Exception {
-        context.stop();
-    }
+//    @Deactivate
+//    public void deactivate() throws Exception {
+//        context.stop();
+//    }
 
     @Override
     public void configure() throws Exception {
@@ -64,7 +60,7 @@ public class ServiceRB extends RouteBuilder {
     public void waitForJsonDataFormat(org.apache.camel.spi.DataFormatResolver dataformat) {
 
     }
-    
+
     @Reference
     public void waitForOrderProcessor(OrderProcessor orderProcessor) {
         
