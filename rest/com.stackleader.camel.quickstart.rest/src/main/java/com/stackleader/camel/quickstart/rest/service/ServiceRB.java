@@ -19,26 +19,13 @@ import org.slf4j.LoggerFactory;
  *
  * @author jeckstei
  */
-@Component(service = ServiceRB.class)
+@Component(service = org.apache.camel.RoutesBuilder.class)
 public class ServiceRB extends RouteBuilder {
 
     private static final Logger LOG = LoggerFactory.getLogger(ServiceRB.class);
     private static final String ORDERS_ENDPOINT = "direct:orders";
     
-
-//    private CamelContext context;
-
-//    @Activate
-//    public void activate(BundleContext bundleContext) throws Exception {
-//        context = new OsgiDefaultCamelContext(bundleContext);
-//        context.addRoutes(this);
-//        context.start();
-//    }
-
-//    @Deactivate
-//    public void deactivate() throws Exception {
-//        context.stop();
-//    }
+    private OrderProcessor orderProcessor;
 
     @Override
     public void configure() throws Exception {
@@ -48,7 +35,7 @@ public class ServiceRB extends RouteBuilder {
 
         from(ORDERS_ENDPOINT)
                 .log(LoggingLevel.INFO, "Processing order")
-                .to("bean:" + OrderProcessor.class.getCanonicalName() + "?method=processOrder");
+                .bean(orderProcessor, "processOrder");
     }
 
     @Reference(target = "(component=jetty)")
@@ -63,6 +50,6 @@ public class ServiceRB extends RouteBuilder {
 
     @Reference
     public void waitForOrderProcessor(OrderProcessor orderProcessor) {
-        
+        this.orderProcessor = orderProcessor;
     }
 }

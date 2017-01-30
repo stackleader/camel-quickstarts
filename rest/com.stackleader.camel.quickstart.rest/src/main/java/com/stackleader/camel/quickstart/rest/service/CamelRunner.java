@@ -6,8 +6,9 @@
 package com.stackleader.camel.quickstart.rest.service;
 
 import com.google.common.collect.Lists;
+import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
+import java.util.concurrent.locks.ReentrantLock;
 import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
@@ -34,29 +35,36 @@ public class CamelRunner {
     private static final Logger LOG = LoggerFactory.getLogger(CamelRunner.class);
 
     private CamelContext context;
-    
+
     private List<RoutesBuilder> routesBuilders;
 
+    private ReentrantLock lock;
+
     public CamelRunner() {
-        routesBuilders = Lists.newArrayList();
+        routesBuilders = Collections.synchronizedList(Lists.newArrayList());
+        lock = new ReentrantLock();
     }
-    
-    
-    
 
     @Activate
     public void activate(BundleContext bundleContext) throws Exception {
-        context = new OsgiDefaultCamelContext(bundleContext);
-        routesBuilders.forEach(rb -> {
-            try {
-                context.addRoutes(rb);
-            } catch (Exception ex) {
-                LOG.error(ex.getMessage(), ex);
+        try {
+            lock.lock();
+            context = new OsgiDefaultCamelContext(bundleContext);
+            context.start();
+            synchronized (routesBuilders) {
+                routesBuilders.forEach(rb -> {
+                    try {
+                        context.addRoutes(rb);
+                    } catch (Exception ex) {
+                        LOG.error(ex.getMessage(), ex);
+                    }
+
+                });
             }
+        } finally {
+            lock.unlock();
+        }
 
-        });
-
-        context.start();
     }
 
     @Deactivate
@@ -66,17 +74,35 @@ public class CamelRunner {
 
     @Reference(name = "camelComponent", service = ComponentResolver.class,
             cardinality = ReferenceCardinality.AT_LEAST_ONE, policy = ReferencePolicy.DYNAMIC,
-            policyOption = ReferencePolicyOption.GREEDY, unbind = "lostCamelComponent")
+            policyOption = ReferencePolicyOption.GREEDY, unbind = "unbindCamelComponent")
     public void gotCamelComponent(ServiceReference serviceReference) {
+        //TODO: handle this if after context start
         LOG.info("got comp: {}", serviceReference.getBundle().getSymbolicName());
     }
 
-    @Reference
-    public void getRouteBuilder(ServiceRB serviceRB) {
-        routesBuilders.add(serviceRB);
+    @Reference(service = RoutesBuilder.class, 
+            cardinality = ReferenceCardinality.AT_LEAST_ONE, policy = ReferencePolicy.DYNAMIC,
+            policyOption = ReferencePolicyOption.GREEDY, unbind = "unbindRouteBuilder")
+    public void getRouteBuilder(org.apache.camel.RoutesBuilder routesBuilder) {
+        if (context != null) {
+            try {
+                lock.lock();
+                context.addRoutes(routesBuilder);
+            } catch (Exception ex) {
+                LOG.error(ex.getMessage(), ex);
+            } finally {
+                lock.unlock();
+            }
+        }
+        routesBuilders.add(routesBuilder);
+    }
+    
+    //TODO: handle this
+    public void unbindRouteBuilder(RoutesBuilder routesBuilder) {
+        
     }
 
-    public void lostCamelComponent(ServiceReference serviceReference) {
+    public void unbindCamelComponent(ServiceReference serviceReference) {
     }
 
 }
