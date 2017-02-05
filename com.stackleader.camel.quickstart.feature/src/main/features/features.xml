@@ -9,6 +9,13 @@
         <bundle>mvn:com.google.guava/guava/19.0</bundle>
         <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.rest/${project.version}</bundle>
     </feature>
+    <feature name="camel-quickstart-jms" version="${project.version}">	
+        <feature>camel-jackson</feature>
+        <feature>camel-scr</feature>
+        <feature>activemq-camel</feature>
+        <bundle>mvn:com.google.guava/guava/19.0</bundle>
+        <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.jms/${project.version}</bundle>
+    </feature>
     <feature name="camel-quickstart-netty" version="${project.version}">
         <feature>camel-netty4</feature>
         <bundle>mvn:${project.groupId}/com.stackleader.camel.quickstart.netty/${project.version}</bundle>
