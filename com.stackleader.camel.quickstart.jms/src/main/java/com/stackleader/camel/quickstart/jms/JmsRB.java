@@ -5,6 +5,7 @@
  */
 package com.stackleader.camel.quickstart.jms;
 
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.osgi.service.component.annotations.Component;
 
@@ -17,8 +18,20 @@ public class JmsRB extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("custom-amq:queue:foo")
-                .log("${body}");
+        from("custom-amq:queue:foo").routeId(JmsRB.class.getCanonicalName() + "-foo")
+                .onException(Exception.class).to("direct:errorHandler").end()
+                .log(LoggingLevel.DEBUG, "${body}")
+                .process(ex -> {
+                    throw new RuntimeException("it failed");
+                })
+                .process(ex -> {
+                    ex.getIn().getBody();
+                });
+        
+        from("direct:errorHandler")
+                .process(ex -> {
+                    ex.getIn().getBody();
+                });
     }
-    
+
 }
