@@ -5,7 +5,6 @@
  */
 package com.stackleader.camel.quickstart.jms;
 
-import javax.jms.ConnectionFactory;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.camel.component.ActiveMQComponent;
 import org.apache.camel.CamelContext;
@@ -22,14 +21,14 @@ public class AmqCamelComponent implements ComponentResolver {
 
     @Override
     public org.apache.camel.Component resolveComponent(String name, CamelContext arg1) throws Exception {
-        ConnectionFactory cf = new ActiveMQConnectionFactory();
-        ((ActiveMQConnectionFactory) cf).setBrokerURL("failover://tcp://localhost:61616");
-        ((ActiveMQConnectionFactory) cf).setUserName("admin");
-        ((ActiveMQConnectionFactory) cf).setPassword("admin");
-
+        ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory();
+        cf.setBrokerURL("failover://tcp://localhost:61616");
+        cf.setUserName("admin");
+        cf.setPassword("admin");
+        
         JmsConfiguration jmsConfiguration = new JmsConfiguration();
         jmsConfiguration.setConnectionFactory(cf);
-        jmsConfiguration.setConcurrentConsumers(10);
+        jmsConfiguration.setConcurrentConsumers(3);
         ActiveMQComponent activeMQComponent = new ActiveMQComponent(arg1);
         activeMQComponent.setConfiguration(jmsConfiguration);
 
