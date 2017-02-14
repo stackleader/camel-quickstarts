@@ -20,16 +20,16 @@ import org.osgi.service.component.annotations.Component;
 public class AmqCamelComponent implements ComponentResolver {
 
     @Override
-    public org.apache.camel.Component resolveComponent(String name, CamelContext arg1) throws Exception {
+    public org.apache.camel.Component resolveComponent(String name, CamelContext camelContext) throws Exception {
         ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory();
         cf.setBrokerURL("failover://tcp://localhost:61616");
         cf.setUserName("admin");
         cf.setPassword("admin");
-        
+
         JmsConfiguration jmsConfiguration = new JmsConfiguration();
         jmsConfiguration.setConnectionFactory(cf);
-        jmsConfiguration.setConcurrentConsumers(3);
-        ActiveMQComponent activeMQComponent = new ActiveMQComponent(arg1);
+        jmsConfiguration.setConcurrentConsumers(10);
+        ActiveMQComponent activeMQComponent = new ActiveMQComponent(camelContext);
         activeMQComponent.setConfiguration(jmsConfiguration);
 
         return activeMQComponent;
