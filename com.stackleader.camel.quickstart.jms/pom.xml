@@ -20,6 +20,11 @@
             <version>2.0.1</version>
         </dependency>
         <dependency>
+            <groupId>com.ibm.msg.client.osgi</groupId>
+            <artifactId>wmq</artifactId>
+            <version>8.0.0.4</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-camel</artifactId>
         </dependency>

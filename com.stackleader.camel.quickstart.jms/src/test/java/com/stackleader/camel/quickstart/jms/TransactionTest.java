@@ -47,11 +47,15 @@ public class TransactionTest extends CamelTestSupport {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("direct:q1")
-                        .setExchangePattern(ExchangePattern.InOnly)
-                        .to("tx-amq:queue:source1");
-
                 from("tx-amq:queue:source1")
+                        //.setExchangePattern(ExchangePattern.InOnly)
+                        .to("direct:source");
+                
+                from("tx-amq:queue:source2")
+                        //.setExchangePattern(ExchangePattern.InOnly)
+                        .to("direct:source");
+
+                from("direct:source")
                         .transacted()
                         .log(LoggingLevel.INFO, "Jms Body: ${body}")
                         //Transaction supported in aggregation
@@ -75,14 +79,17 @@ public class TransactionTest extends CamelTestSupport {
 
    
     @Test
-    @Ignore
+    //@Ignore
     public void addToQueue() throws Exception {
         //First 10 messages will fail in aggregator
         //Remaining 5 will be aggregated but will fail after agg.
-        for (int i = 0; i < 15; i++) {
-            producer.sendBody("direct:q1", "foo1");
+        for (int i = 0; i < 10; i++) {
+            producer.sendBody("tx-amq:queue:source1", ExchangePattern.InOnly, "foo1");
+        }
+        for (int i = 0; i < 5; i++) {
+            producer.sendBody("tx-amq:queue:source2", ExchangePattern.InOnly, "foo1");
         }
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
 }

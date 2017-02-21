@@ -1,0 +1,285 @@
+----------------------------------START FFST------------------------------------
+/home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/FFDC/JMSCC0002.FDC PID:21153
+
+                                    JMS Common Client First Failure Symptom Report
+                                            
+
+Product          :- IBM WebSphere MQ classes for JMS
+Date/Time        :- Wed Feb 15 23:32:28 EST 2017
+System time      :- 1487219548595
+Operating System :- Linux
+UserID           :- jeckste
+Java Vendor      :- Oracle Corporation
+Java Version     :- 25.111-b14
+
+Source Class     :- com.ibm.mq.jms.MQConnectionFactory
+Source Method    :- readObject()
+ProbeID          :- XF001001
+Thread           :- name=main priority=5 group=main ccl=sun.misc.Launcher$AppClassLoader@4aa298b7
+
+                                      Data
+                                      ----
+
+
+
+                              Version information
+                              -------------------
+
+Common Services for Java Platform, Standard Edition
+8.0.0.4
+p800-004-151022.DE
+Production
+inPreferenceTo[0]: com.ibm.msg.client.commonservices.j2me
+Component Title:   Common Services for Java Platform, Standard Edition
+Component Name:    com.ibm.msg.client.commonservices.j2se
+Version:           8.0.0.4
+Class Name:        class com.ibm.msg.client.commonservices.j2se.J2SEComponent
+CMVC:              p800-004-151022.DE
+Jar location:      file:/home/jeckste/.m2/repository/com/ibm/mq/osgi/allclient/8.0.0.4/allclient-8.0.0.4.jar
+Factory Class:     class com.ibm.msg.client.commonservices.j2se.CommonServicesImplementation
+
+
+
+                                  Stack trace
+                                  -----------
+
+Stack trace to show the location of the FFST call
+|   FFST Location  :-  java.lang.Exception
+|   	at com.ibm.msg.client.commonservices.trace.Trace.getCurrentPosition(Trace.java:2143)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.createFFSTString(Trace.java:2053)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.ffstInternal(Trace.java:1935)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.ffst(Trace.java:1736)
+|   	at com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:278)
+|   	at com.stackleader.camel.quickstart.jms.MqCamelComponent.resolveComponent(MqCamelComponent.java:27)
+|   	at com.stackleader.camel.quickstart.jms.AmqTest.createRegistry(AmqTest.java:31)
+|   	at org.apache.camel.test.junit4.CamelTestSupport.createCamelContext(CamelTestSupport.java:555)
+|   	at org.apache.camel.test.junit4.CamelTestSupport.doSetUp(CamelTestSupport.java:271)
+|   	at org.apache.camel.test.junit4.CamelTestSupport.setUp(CamelTestSupport.java:239)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+|   	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+|   	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+|   	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+|   	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+|   	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+|   	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+|   	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+|   	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+|   	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+|   	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+|   	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+|   	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+|   	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+|   	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+|   	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+|   	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+|   	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+|   	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:254)
+|   	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:149)
+|   	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+|   	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+|   	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+|   	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+|   
+
+                            Property Store Contents
+                            -----------------------
+
+All currently set properties
+|   awt.toolkit                    :-  sun.awt.X11.XToolkit
+|   basedir                        :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms
+|   file.encoding                  :-  UTF-8
+|   file.encoding.pkg              :-  sun.io
+|   file.separator                 :-  /
+|   java.awt.graphicsenv           :-  sun.awt.X11GraphicsEnvironment
+|   java.awt.printerjob            :-  sun.print.PSPrinterJob
+|   java.class.path                :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/test-classes:/home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/classes:/home/jeckste/.m2/repository/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar:/home/jeckste/.m2/repository/com/ibm/mq/osgi/allclient/8.0.0.4/allclient-8.0.0.4.jar:/home/jeckste/.m2/repository/org/apache/activemq/activemq-camel/5.6.0/activemq-camel-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/activemq/activemq-core/5.6.0/activemq-core-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar:/home/jeckste/.m2/repository/org/apache/activemq/kahadb/5.6.0/kahadb-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/activemq/protobuf/activemq-protobuf/1.1/activemq-protobuf-1.1.jar:/home/jeckste/.m2/repository/org/fusesource/fuse-extra/fusemq-leveldb/1.1/fusemq-leveldb-1.1.jar:/home/jeckste/.m2/repository/org/fusesource/hawtbuf/hawtbuf-proto/1.9/hawtbuf-proto-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch-scala/1.9/hawtdispatch-scala-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch/1.9/hawtdispatch-1.9.jar:/home/jeckste/.m2/repository/org/iq80/leveldb/leveldb/0.2/leveldb-0.2.jar:/home/jeckste/.m2/repository/org/iq80/leveldb/leveldb-api/0.2/leveldb-api-0.2.jar:/home/jeckste/.m2/repository/com/google/inject/guice/3.0/guice-3.0.jar:/home/jeckste/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/jeckste/.m2/repository/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-osx/1.2/leveldbjni-osx-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni/1.2/leveldbjni-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/hawtjni/hawtjni-runtime/1.5/hawtjni-runtime-1.5.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-linux32/1.2/leveldbjni-linux32-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-linux64/1.2/leveldbjni-linux64-1.2.jar:/home/jeckste/.m2/repository/org/xerial/snappy/snappy-java/1.0.3/snappy-java-1.0.3.jar:/home/jeckste/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar:/home/jeckste/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar:/home/jeckste/.m2/repository/org/apache/hadoop/hadoop-core/1.0.0/hadoop-core-1.0.0.jar:/home/jeckste/.m2/repository/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar:/home/jeckste/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/jeckste/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/home/jeckste/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/home/jeckste/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/home/jeckste/.m2/repository/commons-beanutils/commons-beanutils-core/1.8.0/commons-beanutils-core-1.8.0.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar:/home/jeckste/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:/home/jeckste/.m2/repository/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar:/home/jeckste/.m2/repository/org/fusesource/mqtt-client/mqtt-client/1.0/mqtt-client-1.0.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch-transport/1.9/hawtdispatch-transport-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtbuf/hawtbuf/1.9/hawtbuf-1.9.jar:/home/jeckste/.m2/repository/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar:/home/jeckste/.m2/repository/commons-net/commons-net/2.2/commons-net-2.2.jar:/home/jeckste/.m2/repository/org/jasypt/jasypt/1.8/jasypt-1.8.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.compendium/5.0.0/org.osgi.compendium-5.0.0.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.core/5.0.0/org.osgi.core-5.0.0.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.annotation/6.0.0/org.osgi.annotation-6.0.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-servlet/2.17.0/camel-servlet-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-http-common/2.17.0/camel-http-common-2.17.0.jar:/home/jeckste/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/jeckste/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/home/jeckste/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jms/2.17.0/camel-jms-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-spring/2.17.0/camel-spring-2.17.0.jar:/home/jeckste/.m2/repository/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/jeckste/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/jeckste/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-jms/4.2.5.RELEASE/spring-jms-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-messaging/4.2.5.RELEASE/spring-messaging-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-tx/4.2.5.RELEASE/spring-tx-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-test/2.17.0/camel-test-2.17.0.jar:/home/jeckste/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-core/2.17.0/camel-core-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-core-osgi/2.17.0/camel-core-osgi-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jackson/2.17.0/camel-jackson-2.17.0.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.3/jackson-databind-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.3/jackson-annotations-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.3/jackson-core-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.2/jackson-module-jaxb-annotations-2.7.2.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jxpath/2.17.0/camel-jxpath-2.17.0.jar:/home/jeckste/.m2/repository/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.jar:/home/jeckste/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/home/jeckste/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/jeckste/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jeckste/.m2/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar:/home/jeckste/.m2/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar:
+|   java.class.version             :-  52.0
+|   java.endorsed.dirs             :-  /usr/java/jdk1.8.0_111/jre/lib/endorsed
+|   java.ext.dirs                  :-  /usr/java/jdk1.8.0_111/jre/lib/ext:/usr/java/packages/lib/ext
+|   java.home                      :-  /usr/java/jdk1.8.0_111/jre
+|   java.io.tmpdir                 :-  /tmp
+|   java.library.path              :-  /usr/java/jdk1.8.0_111/jre/lib/amd64:/usr/java/jdk1.8.0_111/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+|   java.runtime.name              :-  Java(TM) SE Runtime Environment
+|   java.runtime.version           :-  1.8.0_111-b14
+|   java.specification.name        :-  Java Platform API Specification
+|   java.specification.vendor      :-  Oracle Corporation
+|   java.specification.version     :-  1.8
+|   java.vendor                    :-  Oracle Corporation
+|   java.vendor.url                :-  http://java.oracle.com/
+|   java.vendor.url.bug            :-  http://bugreport.sun.com/bugreport/
+|   java.version                   :-  1.8.0_111
+|   java.vm.info                   :-  mixed mode
+|   java.vm.name                   :-  Java HotSpot(TM) 64-Bit Server VM
+|   java.vm.specification.name     :-  Java Virtual Machine Specification
+|   java.vm.specification.vendor   :-  Oracle Corporation
+|   java.vm.specification.version  :-  1.8
+|   java.vm.vendor                 :-  Oracle Corporation
+|   java.vm.version                :-  25.111-b14
+|   line.separator                 :-  
+|   
+|   localRepository                :-  /home/jeckste/.m2/repository
+|   maven.ext.class.path           :-  /home/jeckste/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar
+|   org.apache.camel.jmx.disabled  :-  true
+|   os.arch                        :-  amd64
+|   os.name                        :-  Linux
+|   os.version                     :-  4.9.3-200.fc25.x86_64
+|   path.separator                 :-  :
+|   sun.arch.data.model            :-  64
+|   sun.boot.class.path            :-  /usr/java/jdk1.8.0_111/jre/lib/resources.jar:/usr/java/jdk1.8.0_111/jre/lib/rt.jar:/usr/java/jdk1.8.0_111/jre/lib/sunrsasign.jar:/usr/java/jdk1.8.0_111/jre/lib/jsse.jar:/usr/java/jdk1.8.0_111/jre/lib/jce.jar:/usr/java/jdk1.8.0_111/jre/lib/charsets.jar:/usr/java/jdk1.8.0_111/jre/lib/jfr.jar:/usr/java/jdk1.8.0_111/jre/classes
+|   sun.boot.library.path          :-  /usr/java/jdk1.8.0_111/jre/lib/amd64
+|   sun.cpu.endian                 :-  little
+|   sun.cpu.isalist                :-  
+|   sun.desktop                    :-  gnome
+|   sun.io.unicode.encoding        :-  UnicodeLittle
+|   sun.java.command               :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/surefire/surefirebooter5628782296577534847.jar /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/surefire/surefire5398113537240050716tmp /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/surefire/surefire_06420097391944269909tmp
+|   sun.java.launcher              :-  SUN_STANDARD
+|   sun.jnu.encoding               :-  UTF-8
+|   sun.management.compiler        :-  HotSpot 64-Bit Tiered Compilers
+|   sun.os.patch.level             :-  unknown
+|   surefire.real.class.path       :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/surefire/surefirebooter5628782296577534847.jar
+|   surefire.test.class.path       :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/test-classes:/home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms/target/classes:/home/jeckste/.m2/repository/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar:/home/jeckste/.m2/repository/com/ibm/mq/osgi/allclient/8.0.0.4/allclient-8.0.0.4.jar:/home/jeckste/.m2/repository/org/apache/activemq/activemq-camel/5.6.0/activemq-camel-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/activemq/activemq-core/5.6.0/activemq-core-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar:/home/jeckste/.m2/repository/org/apache/activemq/kahadb/5.6.0/kahadb-5.6.0.jar:/home/jeckste/.m2/repository/org/apache/activemq/protobuf/activemq-protobuf/1.1/activemq-protobuf-1.1.jar:/home/jeckste/.m2/repository/org/fusesource/fuse-extra/fusemq-leveldb/1.1/fusemq-leveldb-1.1.jar:/home/jeckste/.m2/repository/org/fusesource/hawtbuf/hawtbuf-proto/1.9/hawtbuf-proto-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch-scala/1.9/hawtdispatch-scala-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch/1.9/hawtdispatch-1.9.jar:/home/jeckste/.m2/repository/org/iq80/leveldb/leveldb/0.2/leveldb-0.2.jar:/home/jeckste/.m2/repository/org/iq80/leveldb/leveldb-api/0.2/leveldb-api-0.2.jar:/home/jeckste/.m2/repository/com/google/inject/guice/3.0/guice-3.0.jar:/home/jeckste/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/jeckste/.m2/repository/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-osx/1.2/leveldbjni-osx-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni/1.2/leveldbjni-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/hawtjni/hawtjni-runtime/1.5/hawtjni-runtime-1.5.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-linux32/1.2/leveldbjni-linux32-1.2.jar:/home/jeckste/.m2/repository/org/fusesource/leveldbjni/leveldbjni-linux64/1.2/leveldbjni-linux64-1.2.jar:/home/jeckste/.m2/repository/org/xerial/snappy/snappy-java/1.0.3/snappy-java-1.0.3.jar:/home/jeckste/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar:/home/jeckste/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar:/home/jeckste/.m2/repository/org/apache/hadoop/hadoop-core/1.0.0/hadoop-core-1.0.0.jar:/home/jeckste/.m2/repository/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar:/home/jeckste/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/jeckste/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/home/jeckste/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/home/jeckste/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/home/jeckste/.m2/repository/commons-beanutils/commons-beanutils-core/1.8.0/commons-beanutils-core-1.8.0.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar:/home/jeckste/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar:/home/jeckste/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:/home/jeckste/.m2/repository/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar:/home/jeckste/.m2/repository/org/fusesource/mqtt-client/mqtt-client/1.0/mqtt-client-1.0.jar:/home/jeckste/.m2/repository/org/fusesource/hawtdispatch/hawtdispatch-transport/1.9/hawtdispatch-transport-1.9.jar:/home/jeckste/.m2/repository/org/fusesource/hawtbuf/hawtbuf/1.9/hawtbuf-1.9.jar:/home/jeckste/.m2/repository/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar:/home/jeckste/.m2/repository/commons-net/commons-net/2.2/commons-net-2.2.jar:/home/jeckste/.m2/repository/org/jasypt/jasypt/1.8/jasypt-1.8.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.compendium/5.0.0/org.osgi.compendium-5.0.0.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.core/5.0.0/org.osgi.core-5.0.0.jar:/home/jeckste/.m2/repository/org/osgi/org.osgi.annotation/6.0.0/org.osgi.annotation-6.0.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-servlet/2.17.0/camel-servlet-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-http-common/2.17.0/camel-http-common-2.17.0.jar:/home/jeckste/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/jeckste/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/home/jeckste/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jms/2.17.0/camel-jms-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-spring/2.17.0/camel-spring-2.17.0.jar:/home/jeckste/.m2/repository/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/jeckste/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/jeckste/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-jms/4.2.5.RELEASE/spring-jms-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-messaging/4.2.5.RELEASE/spring-messaging-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-tx/4.2.5.RELEASE/spring-tx-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-test/2.17.0/camel-test-2.17.0.jar:/home/jeckste/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-core/2.17.0/camel-core-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-core-osgi/2.17.0/camel-core-osgi-2.17.0.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jackson/2.17.0/camel-jackson-2.17.0.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.3/jackson-databind-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.3/jackson-annotations-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.3/jackson-core-2.6.3.jar:/home/jeckste/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.2/jackson-module-jaxb-annotations-2.7.2.jar:/home/jeckste/.m2/repository/org/apache/camel/camel-jxpath/2.17.0/camel-jxpath-2.17.0.jar:/home/jeckste/.m2/repository/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.jar:/home/jeckste/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/home/jeckste/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/jeckste/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jeckste/.m2/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar:/home/jeckste/.m2/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar:
+|   test                           :-  com.stackleader.camel.quickstart.jms.AmqTest#testBlast
+|   user.country                   :-  US
+|   user.dir                       :-  /home/jeckste/Projects/StackLeader/camel-quickstarts/com.stackleader.camel.quickstart.jms
+|   user.home                      :-  /home/jeckste
+|   user.language                  :-  en
+|   user.name                      :-  jeckste
+|   user.timezone                  :-  America/New_York
+
+                           WorkQueueMananger Contents
+                           --------------------------
+
+|   Current ThreadPool size      :-  0
+|   Maintain ThreadPool size     :-  false
+|   Maximum ThreadPool size      :-  -1
+|   ThreadPool inactive timeout  :-  0
+
+                               Runtime properties
+                               ------------------
+
+|   Available processors         :-  4
+|   Free memory in bytes (now)   :-  213286840
+|   Max memory in bytes          :-  3709861888
+|   Total memory in bytes (now)  :-  251658240
+
+                           Component Manager Contents
+                           --------------------------
+
+Common Services Components:
+|   CMVC               :-  p800-004-151022.DE
+|   Class Name         :-  class com.ibm.msg.client.commonservices.j2se.J2SEComponent
+|   Component Name     :-  com.ibm.msg.client.commonservices.j2se
+|   Component Title    :-  Common Services for Java Platform, Standard Edition
+|   Factory Class      :-  class com.ibm.msg.client.commonservices.j2se.CommonServicesImplementation
+|   Jar location       :-  file:/home/jeckste/.m2/repository/com/ibm/mq/osgi/allclient/8.0.0.4/allclient-8.0.0.4.jar
+|   Version            :-  8.0.0.4
+|   inPreferenceTo[0]  :-  com.ibm.msg.client.commonservices.j2me
+
+Messaging Provider Components:
+
+
+                             FFST Object Properties
+                             ----------------------
+
+All currently set properties
+|   XMSC_CONNECTION_TYPE       :-  1
+|   XMSC_CONNECTION_TYPE_NAME  :-  com.ibm.msg.client.wmq
+|   XMSC_WMQ_CONNECTION_MODE   :-  0
+|   XMSC_WMQ_CONNECT_OPTIONS   :-  0
+
+All Thread Information
+
+                          Name : Signal Dispatcher
+                      Priority : 9
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 4
+                         State : RUNNABLE
+
+                          Name : JMSCCThreadPoolMaster
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=main,maxpri=10]
+                            ID : 10
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.Object.wait(Object.java:502)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.waitForNotification(WorkQueueManagerImplementation.java:672)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.waitForNotification(WorkQueueManagerImplementation.java:641)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.run(WorkQueueManagerImplementation.java:908)
+
+                          Name : Reference Handler
+                      Priority : 10
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 2
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.Object.wait(Object.java:502)
+                               : java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+                               : java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+                          Name : Finalizer
+                      Priority : 8
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 3
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+                               : java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+                               : java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+                          Name : main
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=main,maxpri=10]
+                            ID : 1
+                         State : RUNNABLE
+                         Stack : java.lang.Thread.dumpThreads(Thread.java:-2)
+                               : java.lang.Thread.getAllStackTraces(Thread.java:1607)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.generateThreadInfo(DefaultTracer.java:1139)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.access$1200(DefaultTracer.java:145)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer$8.run(DefaultTracer.java:1093)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer$8.run(DefaultTracer.java:1017)
+                               : java.security.AccessController.doPrivileged(AccessController.java:-2)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.ffst(DefaultTracer.java:1017)
+                               : com.ibm.msg.client.commonservices.j2se.wmqsupport.TracerImpl.ffst(TracerImpl.java:173)
+                               : com.ibm.msg.client.commonservices.trace.Trace.ffstInternal(Trace.java:1940)
+                               : com.ibm.msg.client.commonservices.trace.Trace.ffst(Trace.java:1736)
+                               : com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:278)
+                               : com.stackleader.camel.quickstart.jms.MqCamelComponent.resolveComponent(MqCamelComponent.java:27)
+                               : com.stackleader.camel.quickstart.jms.AmqTest.createRegistry(AmqTest.java:31)
+                               : org.apache.camel.test.junit4.CamelTestSupport.createCamelContext(CamelTestSupport.java:555)
+                               : org.apache.camel.test.junit4.CamelTestSupport.doSetUp(CamelTestSupport.java:271)
+                               : org.apache.camel.test.junit4.CamelTestSupport.setUp(CamelTestSupport.java:239)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+                               : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:498)
+                               : org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+                               : org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+                               : org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+                               : org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+                               : org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+                               : org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+                               : org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+                               : org.junit.rules.RunRules.evaluate(RunRules.java:20)
+                               : org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+                               : org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+                               : org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+                               : org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+                               : org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+                               : org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+                               : org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+                               : org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+                               : org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+                               : org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+                               : org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:254)
+                               : org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:149)
+                               : org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+                               : org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+                               : org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+                               : org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+
+First Failure Symptom Report completed at Wed Feb 15 23:32:28 EST 2017
+------------------------------------END FFST------------------------------------

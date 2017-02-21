@@ -26,8 +26,9 @@ public class AmqTest extends CamelTestSupport {
     @Override
     protected JndiRegistry createRegistry() throws Exception {
         JndiRegistry registry = super.createRegistry();
-        AmqCamelComponent amq = new AmqCamelComponent();
-        registry.bind("custom-amq", amq.resolveComponent("", context));
+        //AmqCamelComponent amq = new AmqCamelComponent();
+        MqCamelComponent mq = new MqCamelComponent();
+        registry.bind("custom-amq", mq.resolveComponent("", context));
         return registry;
     }
 
@@ -51,7 +52,7 @@ public class AmqTest extends CamelTestSupport {
         };
     }
 
-    //@Test
+    @Test
     public void testBlast() {
         for (int i = 0; i < 10; i++) {
             producer.sendBody("direct:q1", "foo1");
